@@ -16,10 +16,10 @@ channel2.set_vScale(0.2)                      # Set the voltage scale to 200mV
 channel3.set_vScale(0.2)                      # Set the voltage scale to 200mV
 channel4.set_vScale(2)                        # Set the voltage scale to 2V
 
-data_adc_d_p = channel1.get_waveform()        # Download the waveform from channel 1
-data_adc_clk_p = channel2.get_waveform()      # Download the waveform from channel 2
-data_adc_cnv_p = channel3.get_waveform()      # Download the waveform from channel 3
-data_adc_osmp = channel4.get_waveform()       # Download the waveform from channel 4
+data_adc_d_p = channel1.get_waveform()                         # Download the waveform from channel 1
+data_adc_clk_p = channel2.get_waveform(wait=False)      # Download the waveform from channel 2
+data_adc_cnv_p = channel3.get_waveform(wait=False)      # Download the waveform from channel 3
+data_adc_osmp = channel4.get_waveform(wait=False)       # Download the waveform from channel 4
 
 fig = plot.figure()
 ax1 = fig.add_subplot(411)
