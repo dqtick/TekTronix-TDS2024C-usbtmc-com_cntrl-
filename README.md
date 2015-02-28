@@ -4,15 +4,13 @@ TekTronix TDS2024C Oscillioscope USB Communication and Control using Python
 I found another git repo with code for a Tektronix TDS2024B Oscillioscope. However the implementation was for serial 
 based communication over ttyS0. I needed to use a TDS2024C over usbtmc0. Fortunately he also had usb code for an 
 aglient waveform generator. So I used the USB wrapper and modded his code to work via usbtmc0. I also found some code 
-from another guy who was hacking a different brand of scope but using the same Python based approach and borrowed/moded 
-some code for making Matlab like plots of the data as well as some code for saving the data as csv files. 
+from another guy who was hacking a different brand of scope but using the same Python based approach and borrowed/moded some code for making Matlab like plots of the data as well as some code for saving the data as csv files. 
 
-Currently I am only capturing one channel ata time and would like to get all four simultaneously. I think the easy way 
-to do this is to send the scope the stop signal, then read each of the four channels one at a time, then give it the 
-run signal.
+The example top level usage script reads all 4 channels of data at the same time and then saves each channel's data as 
+a csv file and then shows a Matlab like plot of all 4 channels.
 
-Also I want to be able to set and manipulate the trigger signal parameters. Also it would be nice to be able to set the 
-parameters for the Measure functions as well.
+I would like to be able to set and manipulate the trigger signal parameters. Also it would be nice to be able to set the parameters for the Measure functions as well. Also stop/run and single button functions would be nice. A python 
+or Qt gui would be nice too.
 
 The original code I used can be found here:
 
