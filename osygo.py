@@ -1,6 +1,9 @@
 import tds2024Cusb
 import numpy
 import matplotlib.pyplot as plot
+import tds2024Cusb
+import numpy
+import matplotlib.pyplot as plot
 
 scope = tds2024Cusb.tek2024('/dev/usbtmc0')
 
@@ -21,24 +24,26 @@ data_adc_clk_p = channel2.get_waveform(wait=False)      # Download the waveform 
 data_adc_cnv_p = channel3.get_waveform(wait=False)      # Download the waveform from channel 3
 data_adc_osmp = channel4.get_waveform(wait=False)       # Download the waveform from channel 4
 
-fig = plot.figure()
-ax1 = fig.add_subplot(411)
+fig = plot.figure(figsize=(15.75,11.25))
+plot.title("Oscilloscope Channels 1-4")
+plot.ylabel("Voltage (V)\n")
+plot.xlabel("Time (Sec)")
+ax1 = fig.add_subplot(411,axisbg =(0.85, 0.85, 0.85))
 ax1.plot(data_adc_d_p[0], data_adc_d_p[1], color='yellow')
 ax1.grid(True)
 #ax1.axhline(0, color='blue', lw=2)
-ax2 = fig.add_subplot(412, sharex=ax1) 
+ax2 = fig.add_subplot(412, sharex=ax1, axisbg =(0.85, 0.85, 0.85)) 
 ax2.plot(data_adc_clk_p[0], data_adc_clk_p[1], color='cyan')
 ax2.grid(True)
 #ax2.axhline(0, color='cyan', lw=2)
-ax3 = fig.add_subplot(413, sharex=ax1)
+ax3 = fig.add_subplot(413, sharex=ax1, axisbg =(0.85, 0.85, 0.85))
 ax3.plot(data_adc_cnv_p[0], data_adc_cnv_p[1], color='magenta')
 ax3.grid(True)
 #ax3.axhline(0, color='magenta', lw=2)
-ax4 = fig.add_subplot(414, sharex=ax1)
+ax4 = fig.add_subplot(414, sharex=ax1, axisbg =(0.85, 0.85, 0.85))
 ax4.plot(data_adc_osmp[0], data_adc_osmp[1], color='green')
 ax4.grid(True)
 #ax4.axhline(0, color='green', lw=2)
-plot.show()
 
 f = open( 'data_adc_d_p.py', 'w' )
 f.write( 'data_adc_d_p = ' + repr(data_adc_d_p) + '\n' )
@@ -56,3 +61,4 @@ f = open( 'data_osmp.py', 'w' )
 f.write( 'data_osmp = ' + repr(data_adc_osmp) + '\n' )
 f.close()
 
+plot.show()
